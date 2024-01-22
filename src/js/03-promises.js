@@ -19,7 +19,6 @@ function handleFormSubmit(e) {
   const amount = Number(refs.inputAmountEl.value);
 
   for (let i = 1; i < amount + 1; i++) {
-    delay += step;
     createPromise(i, delay)
       .then(({ position, delay }) =>
         iziToast.success({
@@ -33,6 +32,7 @@ function handleFormSubmit(e) {
           position: 'topRight',
         })
       );
+    delay += step;
   }
   clearForm();
 }
