@@ -6,11 +6,12 @@ const refs = {
 
 refs.startBtn.addEventListener('click', handleStartBtn);
 refs.stopBtn.addEventListener('click', handleStopBtn);
-
+refs.stopBtn.disabled = true;
 let timerId;
 
 function handleStartBtn() {
   refs.startBtn.disabled = true;
+  refs.stopBtn.disabled = false;
   setBodyColor();
   timerId = setInterval(setBodyColor, 1000);
 }
@@ -21,6 +22,7 @@ function setBodyColor() {
 
 function handleStopBtn() {
   clearInterval(timerId);
+  refs.stopBtn.disabled = true;
   refs.startBtn.disabled = false;
 }
 

@@ -43,6 +43,8 @@ function checkDate(data) {
 function hanldeStartTimer() {
   const deltaTime = refs.calendar._flatpickr.selectedDates[0] - new Date();
   getTimerStarted(deltaTime);
+  refs.startBtn.disabled = true;
+  refs.calendar.disabled = true;
 }
 function getTimerStarted(ms) {
   const interval = 1000;
